@@ -2,8 +2,12 @@
 
 /* Variables */
 
-$color-light: #fff;
-$color-dark: #444;
+$color-one: #55ACEE; //blue
+$color-two: #292F33; //black
+$color-three: #66757F; //grey
+$color-four: #CCD6DD; //light-grey
+$color-five: #E1E8ED; //whte
+$color-six: #0378A6; //Hawaiian Surf
 
 $font-logo: 'Sacramento', cursive;
 $font-header: 'Oswald', sans-serif;
@@ -16,9 +20,9 @@ $font-text: 'Source Sans Pro', sans-serif;
 }
 
 body {
-  background: $color-light;
+  background: $color-five;
   font-family: $font-text;
-  color: $color-dark;
+  color: $color-two;
   font-weight: 300;
   font-size: 16px;
   line-height: 1.7;
@@ -37,7 +41,19 @@ body {
   span {
     text-transform: none;
     font-weight: 400;
-    color: lighten($color-dark, 20%);
+    color: lighten($color-two, 20%);
+  }
+}
+
+a {
+  color: $color-one;
+  text-decoration: none;
+  font-weight: 900;
+  &:hover {
+    background-color: $color-five;
+    opacity: 0.8;
+    padding: 3px 30px;
+    transition: 0.2s;
   }
 }
 
@@ -57,10 +73,10 @@ body {
 }
 
 .sidebar, .posts {
-  background: $color-light;
+  background: $color-four;
   margin-right: 10px;
   padding: 40px;
-  border: 1px solid $color-dark;
+  border: 1px solid $color-three;
   border-radius: 5px;
 }
 
@@ -68,10 +84,14 @@ body {
 
 .logo {
   font-family: $font-logo;
+  color: $color-two;
   font-weight: 400;
   font-size: 104px;
   line-height: 1;
   text-align: center;
+  span {
+    color: $color-one;
+  }
 }
 
 /* Lists */
@@ -81,7 +101,7 @@ body {
   margin: 0;
   padding: 0;
   .active {
-    font-weight: bold;
+    color: $color-six;
   }
 }
 
