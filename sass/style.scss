@@ -38,6 +38,7 @@ body {
   text-transform: uppercase;
   font-family: $font-header;
   font-weight: 600;
+
   span {
     text-transform: none;
     font-weight: 400;
@@ -49,6 +50,7 @@ a {
   color: $color-one;
   text-decoration: none;
   font-weight: 900;
+
   &:hover {
     background-color: $color-five;
     opacity: 0.8;
@@ -89,6 +91,7 @@ a {
   font-size: 104px;
   line-height: 1;
   text-align: center;
+
   span {
     color: $color-one;
   }
@@ -100,6 +103,7 @@ a {
   list-style-type: none;
   margin: 0;
   padding: 0;
+
   .active {
     color: $color-six;
   }
@@ -125,6 +129,7 @@ a {
   display: none;
   opacity: 0.8;
   transition: 6s;
+
   &.active {
     display: block;
   }
@@ -136,6 +141,7 @@ a {
 
 .post-tags {
   display: flex;
+
   p {
     margin: 0 10px 0 0;
   }
@@ -157,5 +163,5 @@ a {
     display: flex;
     justify-content: space-around;
   }
-  
+
 }
