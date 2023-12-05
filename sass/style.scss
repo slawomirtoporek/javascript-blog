@@ -52,7 +52,7 @@ a {
   &:hover {
     background-color: $color-five;
     opacity: 0.8;
-    padding: 3px 30px;
+    padding: 3px 5px;
     transition: 0.2s;
   }
 }
@@ -123,6 +123,8 @@ a {
 
 .post {
   display: none;
+  opacity: 0.8;
+  transition: 6s;
   &.active {
     display: block;
   }
@@ -137,4 +139,23 @@ a {
   p {
     margin: 0 10px 0 0;
   }
+}
+
+/* Media queries */
+
+@media(max-width: 700px){
+  .wrapper{
+    flex-direction: column;
+  }
+
+  .sidebar, .posts{
+    flex: 0 0 100%;
+    margin-bottom: 15px;
+  }
+
+  .sidebar-down{
+    display: flex;
+    justify-content: space-around;
+  }
+  
 }
