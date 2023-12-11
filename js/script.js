@@ -37,14 +37,14 @@ const optArticleSelector = '.post',
   optTitleListSelector = '.titles',
   optArticleTagsSelector = '.post-tags .list',
   optTagSelector = '.list-horizontal a',
-  optAutrhorSelector = '.posts .post-author';
+  optArticleAuthorSelector = '.post .post-author';
 
 function generateTitleLinks(customSelector=''){
   /* remove contents of titleList */
   const titleList = document.querySelector(optTitleListSelector);
   /* for each article */
   const articles = document.querySelectorAll(optArticleSelector + customSelector);
-  console.log(customSelector);
+  console.log('customSelector' ,customSelector);
   let html = '';
 
   for(const article of articles) {
@@ -98,15 +98,16 @@ function generateTags(){
         let link = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>';
         console.log(link);
       /* add generated code to html variable */
-      html = html + link
+      html = html + link;
     /* END LOOP: for each tag */
     }
-    console.log(html);
     /* insert HTML of all the links into the tags wrapper */
-    wrapper.innerHTML = html;
+    console.log(html);
   /* END LOOP: for every article: */
+    wrapper.innerHTML = html;
   }
 }
+
 generateTags();
 
 function tagClickHandler(event){
@@ -140,7 +141,7 @@ function tagClickHandler(event){
     /* END LOOP: for each found tag link */
     }
   /* execute function "generateTitleLinks" with article selector as argument */
-  generateTitleLinks('[data-tags~="' + tag + '"]')
+  generateTitleLinks('[data-tags~="' + tag + '"]');
 }
 
 function addClickListenersToTags(){
@@ -159,6 +160,7 @@ function addClickListenersToTags(){
 addClickListenersToTags();
 
 function generateAuthors(){
+
   /* find all articles */
   const articles = document.querySelectorAll(optArticleSelector);
   /* START LOOP: for each articles */
@@ -168,13 +170,20 @@ function generateAuthors(){
     /* replace spaces with dashes between author name and surname*/
     const authorHref = author.replace(' ', '-');
     /* generate HTML of the link */
-    const html = '<a href="#' + authorHref + '">' + author + '</a>';
+    const html = '<a href="#author-' + authorHref + '"><span>' + author + '</span></a>';
     console.log(html);
     /* find author paragraph */
-    const authorParagraph = article.querySelector(optAutrhorSelector);
+    const authorParagraph = article.querySelector(optArticleAuthorSelector);
+    /* add html variable with empty string */
+    let listHTML = '';
+    /* add generated html to listHtml variable */
+    listHTML = listHTML + html;
+    console.log('List HTML', listHTML);
     /* insert the link HTML code into authorParagraph */
-    authorParagraph.innerHTML = html;
+    authorParagraph.innerHTML = listHTML;
   }
 }
 
 generateAuthors();
+
+
