@@ -39,7 +39,7 @@ const optArticleSelector = '.post',
   optTagSelector = '.list-horizontal a',
   optArticleAuthorSelector = '.post .post-author';
 
-function generateTitleLinks(customSelector=''){
+const generateTitleLinks = function(customSelector=''){
   /* remove contents of titleList */
   const titleList = document.querySelector(optTitleListSelector);
   /* for each article */
@@ -70,11 +70,11 @@ function generateTitleLinks(customSelector=''){
   for(let link of links){
     link.addEventListener('click', titleClickHandler);
   }
-}
+};
 
 generateTitleLinks();
 
-function generateTags(){
+const generateTags = function(){
   /* find all articles */
   const articles = document.querySelectorAll(optArticleSelector);
   console.log(articles);
@@ -106,11 +106,11 @@ function generateTags(){
     /* END LOOP: for every article: */
     wrapper.innerHTML = html;
   }
-}
+};
 
 generateTags();
 
-function tagClickHandler(event){
+const tagClickHandler = function(event){
   /* prevent default action for this event */
   event.preventDefault();
   /* make new constant named "clickedElement" and give it the value of "this" */
@@ -142,9 +142,9 @@ function tagClickHandler(event){
   }
   /* execute function "generateTitleLinks" with article selector as argument */
   generateTitleLinks('[data-tags~="' + tag + '"]');
-}
+};
 
-function addClickListenersToTags(){
+const addClickListenersToTags = function(){
   /* find all links to tags */
   const linkTags = document.querySelectorAll(optTagSelector);
   console.log('linkTags', linkTags);
@@ -155,11 +155,11 @@ function addClickListenersToTags(){
     linkTag.addEventListener('click', tagClickHandler);
   /* END LOOP: for each link */
   }
-}
+};
 
 addClickListenersToTags();
 
-function generateAuthors(){
+const generateAuthors = function(){
   /* find all articles */
   const articles = document.querySelectorAll(optArticleSelector);
   /* START LOOP: for each articles */
@@ -169,7 +169,7 @@ function generateAuthors(){
     /* replace spaces with dashes between author name and surname*/
     const authorHref = author.replace(' ', '-');
     /* generate HTML of the link */
-    const html = '<a href="#author-' + authorHref + '"><span>' + author + '</span></a>';
+    const html = '<a href="#author-' + authorHref + '"><span>by ' + author + '</span></a>';
     console.log(html);
     /* find author paragraph */
     const authorParagraph = article.querySelector(optArticleAuthorSelector);
@@ -181,11 +181,11 @@ function generateAuthors(){
     /* insert the link HTML code into authorParagraph */
     authorParagraph.innerHTML = listHTML;
   }
-}
+};
 
 generateAuthors();
 
-function authorClickHandler(event){
+const authorClickHandler = function(event){
   /* prevent default action for this event */
   event.preventDefault();
   /* make new constant named "clickedElement" and give it the value of "this" */
@@ -216,10 +216,10 @@ function authorClickHandler(event){
   }
   /* execute function "generateTitleLinks" with article selector as argument */
   generateTitleLinks('[data-author="' + author + '"]');
-}
+};
 
 
-function addClickListenersToAuthors(){
+const addClickListenersToAuthors = function(){
   /* find all links to author */
   const authorActives = document.querySelectorAll('.post-author a');
   /* START LOOP: for each link */
@@ -228,6 +228,6 @@ function addClickListenersToAuthors(){
     authorActive.addEventListener('click', authorClickHandler);
   /* END LOOP: for each link */
   }
-}
+};
 
 addClickListenersToAuthors();
