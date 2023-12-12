@@ -92,18 +92,18 @@ function generateTags(){
     const tags = dataTags.split(' ');
     console.log(tags);
     /* START LOOP: for each tag */
-      for(const tag of tags){
-        console.log(tag);
+    for(const tag of tags){
+      console.log(tag);
       /* generate HTML of the link */
-        let link = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>';
-        console.log(link);
+      let link = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>';
+      console.log(link);
       /* add generated code to html variable */
       html = html + link;
     /* END LOOP: for each tag */
     }
     /* insert HTML of all the links into the tags wrapper */
     console.log(html);
-  /* END LOOP: for every article: */
+    /* END LOOP: for every article: */
     wrapper.innerHTML = html;
   }
 }
@@ -139,7 +139,7 @@ function tagClickHandler(event){
     console.log(tagLink);
     tagLink.classList.add('active');
     /* END LOOP: for each found tag link */
-    }
+  }
   /* execute function "generateTitleLinks" with article selector as argument */
   generateTitleLinks('[data-tags~="' + tag + '"]');
 }
