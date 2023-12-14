@@ -35,9 +35,10 @@ const titleClickHandler = function(event){
 const optArticleSelector = '.post',
   optTitleSelector = '.post-title',
   optTitleListSelector = '.titles',
-  optArticleTagsSelector = '.post-tags .list',
-  optTagSelector = '.list-horizontal a',
+  optArticleTagsSelector = '.list.tags a',
+  //optTagSelector = '.list-horizontal a',
   optArticleAuthorSelector = '.post .post-author',
+  optArticleAuthorSelectorLink = '.post-author a',
   optTagsListSelector = '.list.tags',
   optCloudClassCount = 5,
   optCloudClassPrefix = 'tag-size-';
@@ -89,14 +90,14 @@ const calculateTagsParams = function(tags){
     }
   }
   return params;
-}
+};
 
 calculateTagsParams();
 
 const calculateTagClass = function(count, params){
-  const classNumber = Math.floor( ( (count - params.min) / (params.max - params.min) ) * optCloudClassCount + 1 );
+  const classNumber = Math.floor( ( (count - params.min) / (params.max - params.min) ) * (optCloudClassCount - 1) + 1 );
   return classNumber;
-}
+};
 
 const generateTags = function(){
   /* [NEW] create a new variable allTags with an empty object */
@@ -195,7 +196,7 @@ const tagClickHandler = function(event){
 
 const addClickListenersToTags = function(){
   /* find all links to tags */
-  const linkTags = document.querySelectorAll('.list.tags a');
+  const linkTags = document.querySelectorAll(optArticleTagsSelector);
   console.log('linkTags', linkTags);
   /* START LOOP: for each link */
   for(const linkTag of linkTags){
@@ -270,7 +271,7 @@ const authorClickHandler = function(event){
 
 const addClickListenersToAuthors = function(){
   /* find all links to author */
-  const authorActives = document.querySelectorAll('.post-author a');
+  const authorActives = document.querySelectorAll(optArticleAuthorSelectorLink);
   /* START LOOP: for each link */
   for(const authorActive of authorActives){
     /* add tagClickHandler as event listener for that link */
