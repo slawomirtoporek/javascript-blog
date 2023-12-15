@@ -123,6 +123,12 @@ a {
       }
     }
   }
+
+  .sidebar-right {
+    a {
+      color: $color-six;
+    }
+  }
 }
 
 /* Logo */
@@ -175,6 +181,12 @@ a {
 
   &.active {
     display: block;
+  }
+
+  .post-author a {
+    &.active {
+      color: $color-six;
+    }
   }
 }
 
